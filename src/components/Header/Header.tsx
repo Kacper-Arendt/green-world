@@ -2,16 +2,14 @@ import React from "react";
 import styled from "styled-components";
 import {SearchBar} from "./SearchBar";
 import {BiCartAlt, BiUser} from "react-icons/bi";
-import {main} from '../../images/images';
 import {Categories} from "./Categories";
+import {Image} from "./Image";
 
 const StyledHeader = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
   min-height: 50rem;
-
-
 `
 
 const Bar = styled.div`
@@ -31,14 +29,6 @@ const Icons = styled.span`
   }
 `
 
-const Image = styled.div`
-  height: 25rem;
-  width: 100%;
-  background-image: url(${main});
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-`
 export const Header = () => {
 
     return (
@@ -51,7 +41,7 @@ export const Header = () => {
                 </Icons>
             </Bar>
             <Categories/>
-            <Image/>
+            <Image />
         </StyledHeader>
     )
 }
