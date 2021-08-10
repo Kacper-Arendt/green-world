@@ -1,5 +1,6 @@
 import React from 'react';
-import {createGlobalStyle} from 'styled-components';
+import styled, {createGlobalStyle} from 'styled-components';
+import { Header } from './components/Components';
 
 const GlobalStyles = createGlobalStyle`
   *,
@@ -23,12 +24,18 @@ const GlobalStyles = createGlobalStyle`
     --color-primary: green;
   }
 `
+const Wrapper = styled.div`
+
+`
 
 function App() {
     return (
-        <div>
+        <>
             <GlobalStyles/>
-        </div>
+            <Wrapper>
+                <Header />
+            </Wrapper>
+        </>
     );
 }
 
