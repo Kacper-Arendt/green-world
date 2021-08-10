@@ -21,7 +21,7 @@ const GlobalStyles = createGlobalStyle`
   :root {
     --color-text: black;
     --color-background: #EFEFEF;
-    --color-primary: green;
+    --color-primary: #87A668;
   }
 `
 const Wrapper = styled.div`

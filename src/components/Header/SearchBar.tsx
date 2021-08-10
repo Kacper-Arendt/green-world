@@ -3,13 +3,13 @@ import {FaSearch} from "react-icons/fa";
 
 const Form = styled.form`
   width: 15rem;
+  height: 2rem;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  justify-self: center;
-  height: 3.2rem;
-  margin-right: 1.5rem;
-  font-size: 2rem;`
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  `
 
 const Input = styled.input`
   width: 75%;
@@ -18,7 +18,7 @@ const Input = styled.input`
   border: 0;
   outline: 0;
   background-color: white;
-  color: white;
+  color: black;
   padding: .5rem 0 .5rem 1.5rem;
   font-size: inherit;
   font-weight: 600;
@@ -28,19 +28,15 @@ const Input = styled.input`
 
 const Button = styled.button`
   height: 100%;
-  padding: 0 1.5rem;
+  padding: .5rem 1.5rem;
   outline: 0;
   border-radius: 0 3rem 3rem 0;
   border: none;
   background-color: white;
-  color: white;
-  font-size: inherit;
+  color: black;
+  font-size: 1.3em;
   font-weight: 600;
   cursor: pointer;
-
-  :disabled {
-    color: grey;
-  }
 `
 
 export const SearchBar = () => {
