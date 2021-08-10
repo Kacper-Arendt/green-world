@@ -7,7 +7,7 @@ const Form = styled.form`
   display: flex;
   flex-direction: row;
   cursor: pointer;
-
+  margin-left: auto;  
 `
 
 const Input = styled.input`
