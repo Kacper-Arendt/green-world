@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import {FaSearch} from "react-icons/fa";
+import { device } from "../../Models/MediaQueries";
 
 const Form = styled.form`
   width: 15rem;
@@ -7,7 +8,11 @@ const Form = styled.form`
   display: flex;
   flex-direction: row;
   cursor: pointer;
-  margin-left: auto;  
+  margin-left: auto;
+
+@media${device.tablet} {
+width: 25rem;
+}
 `
 
 const Input = styled.input`
