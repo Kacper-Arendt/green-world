@@ -1,20 +1,11 @@
-import {tomatoes} from '../images/images';
+import {tomatoes} from '../../images/images';
+import { IProduct } from '../../Models/IProduct';
 
-
-interface IProject {
-    id: number,
-    name: string,
-    price: string,
-    per: string
-    img: string,
-    alt: string,
-}
-
-export const Products: Array<IProject> = [
+export const Products: Array<IProduct> = [
     {
         id: 1,
         name: 'Tomatoes',
-        price: '3$',
+        price: 3,
         per: 'kg',
         img: tomatoes,
         alt: 'tomatoes'
@@ -22,7 +13,7 @@ export const Products: Array<IProject> = [
     {
         id: 2,
         name: 'Giant Tomatoes',
-        price: '5$',
+        price: 5,
         per: 'kg',
         img: tomatoes,
         alt: 'tomatoes'
@@ -30,7 +21,7 @@ export const Products: Array<IProject> = [
     {
         id: 3,
         name: 'Cherry Tomatoes',
-        price: '4$',
+        price: 4,
         per: 'kg',
         img: tomatoes,
         alt: 'tomatoes'
