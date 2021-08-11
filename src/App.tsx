@@ -1,7 +1,6 @@
 import React from 'react';
 import styled, {createGlobalStyle} from 'styled-components';
-import { Header } from './components/Components';
-import {BestBuys} from "./components/BestBuys";
+import {Header, BestBuys, Discounts} from './components/Components';
 
 const GlobalStyles = createGlobalStyle`
   *,
@@ -36,8 +35,9 @@ function App() {
         <>
             <GlobalStyles/>
             <Wrapper>
-                <Header />
-                <BestBuys />
+                <Header/>
+                <BestBuys/>
+                <Discounts/>
             </Wrapper>
         </>
     );

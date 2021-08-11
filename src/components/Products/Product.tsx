@@ -1,20 +1,26 @@
-import {Products} from "./Products";
 import styled from "styled-components";
 import {IProduct} from "../../Models/IProduct";
 
-const Item = styled.div`
-  width: 100%;
-  height: 100%;
+interface IPrice{
+    discount?: number
+}
+
+const Item = styled.div<IPrice>`
+  width: 23rem;
+  height: 35rem;
+
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 60% 6rem 1fr 4rem  4rem;
   grid-template-areas: 
   "img img img"
-  "name . ."
+  "name name name"
   "line line line"
-  "price . ."
+  "price newPrice ."
   "btn btn btn";
   place-items: center;
+
+  background-color: white;
 
   img {
     grid-area: img;
@@ -25,20 +31,10 @@ const Item = styled.div`
 
   h3 {
     grid-area: name;
+    justify-self: start;
     font-size: 1.6rem;
     margin: 1.5rem 2rem 1rem;
     white-space: nowrap;
-  }
-
-  p {
-    grid-area: price;
-    place-self: start;
-    font-size: 1.4rem;
-    margin: 1rem 2rem;
-
-    span {
-      font-weight: bold;
-    }
   }
 `
 const Line = styled.div`
@@ -59,14 +55,39 @@ const Button = styled.button`
   font-weight: bold;
 `
 
+const Price = styled.p`
+  place-self: start;
+  font-size: 1.5rem;
+  margin: 1rem 2rem;
+
+  span {
+    font-weight: bold;
+  }
+`
+
+
+const NormalPrice = styled(Price)<IPrice>`
+  grid-area: price;
+  justify-self: start;
+  text-decoration:${(props) => props.discount && 'line-through'};
+`
+
+const NewPrice = styled(Price)<IPrice>`
+  grid-area: newPrice;
+  justify-self: start;
+  color: ${(props) => props.discount && 'green'};
+`
 
 export const Product = (props: IProduct) => {
     return (
-        <Item key={props.id}>
+        <Item key={props.id} >
             <img src={props.img} alt={props.alt}/>
             <h3>{props.name}</h3>
             <Line/>
-            <p><span>{props.price}</span>/{props.per}</p>
+            <NormalPrice discount={props.newPrice}><span>{props.price}$</span>/{props.per}</NormalPrice>
+            {props.newPrice &&
+            <NewPrice discount={props.newPrice}><span>{props.newPrice}$</span>/{props.per}</NewPrice>
+            }
             <Button>Add to cart</Button>
         </Item>
     )
