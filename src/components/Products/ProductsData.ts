@@ -1,29 +1,33 @@
 import {tomatoes} from '../../images/images';
 import { IProduct } from '../../Models/IProduct';
 
-export const Products: Array<IProduct> = [
+export const ProductsData: Array<IProduct> = [
     {
-        id: 1,
+        id: 0,
         name: 'Tomatoes',
         price: 3,
         per: 'kg',
         img: tomatoes,
-        alt: 'tomatoes'
+        alt: 'tomatoes',
     },
     {
-        id: 2,
+        id: 1,
         name: 'Giant Tomatoes',
         price: 5,
         per: 'kg',
         img: tomatoes,
-        alt: 'tomatoes'
+        alt: 'tomatoes',
+        discount: true,
+        newPrice: 3,
     },
     {
-        id: 3,
-        name: 'Cherry Tomatoes',
+        id: 2,
+        name: 'Raspberry Tomatoes',
         price: 4,
         per: 'kg',
         img: tomatoes,
-        alt: 'tomatoes'
+        alt: 'tomatoes',
+        newPrice: 2,
+        discount: true,
     },
 ]

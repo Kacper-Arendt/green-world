@@ -5,4 +5,6 @@ export interface IProduct {
     img: string,
     price: number,
     per: string
+    discount?: boolean,
+    newPrice?: number,
 }
