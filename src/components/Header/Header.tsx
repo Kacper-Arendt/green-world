@@ -8,8 +8,7 @@ import {Image} from "./Image";
 const StyledHeader = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  min-height: 50rem;
+  min-height: 30rem;
 `
 
 const Bar = styled.div`
@@ -41,7 +40,7 @@ export const Header = () => {
                 </Icons>
             </Bar>
             <Categories/>
-            <Image />
+            <Image/>
         </StyledHeader>
     )
 }
