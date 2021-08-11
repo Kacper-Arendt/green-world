@@ -17,7 +17,6 @@ export const ProductsData: Array<IProduct> = [
         per: 'kg',
         img: tomatoes,
         alt: 'tomatoes',
-        discount: true,
         newPrice: 3,
     },
     {
@@ -28,6 +27,5 @@ export const ProductsData: Array<IProduct> = [
         img: tomatoes,
         alt: 'tomatoes',
         newPrice: 2,
-        discount: true,
     },
 ]

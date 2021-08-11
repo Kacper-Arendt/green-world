@@ -22,7 +22,6 @@ export const Discounts = () => {
                 price={ProductsData[2].price}
                 per={ProductsData[2].per}
                 newPrice={ProductsData[2].newPrice}
-                discount={ProductsData[2].discount}
                 />
         </WrapperEl>
     )

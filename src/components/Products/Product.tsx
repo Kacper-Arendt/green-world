@@ -2,7 +2,7 @@ import styled from "styled-components";
 import {IProduct} from "../../Models/IProduct";
 
 interface IPrice{
-    discount?: boolean
+    discount?: number
 }
 
 const Item = styled.div<IPrice>`
@@ -84,9 +84,9 @@ export const Product = (props: IProduct) => {
             <img src={props.img} alt={props.alt}/>
             <h3>{props.name}</h3>
             <Line/>
-            <NormalPrice discount={props.discount}><span>{props.price}$</span>/{props.per}</NormalPrice>
+            <NormalPrice discount={props.newPrice}><span>{props.price}$</span>/{props.per}</NormalPrice>
             {props.newPrice &&
-            <NewPrice discount={props.discount}><span>{props.newPrice}$</span>/{props.per}</NewPrice>
+            <NewPrice discount={props.newPrice}><span>{props.newPrice}$</span>/{props.per}</NewPrice>
             }
             <Button>Add to cart</Button>
         </Item>

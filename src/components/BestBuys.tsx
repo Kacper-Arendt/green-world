@@ -21,6 +21,7 @@ export const BestBuys = () => {
                 alt={ProductsData[0].alt}
                 price={ProductsData[0].price}
                 per={ProductsData[0].per}
+                newPrice={ProductsData[0].newPrice}
             />
         </WrapperEl>
     )
