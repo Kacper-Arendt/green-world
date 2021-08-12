@@ -7,6 +7,7 @@ const WrapperEl = styled(Wrapper)`
   width: 100%;
   height: 18rem;
   flex-direction: row;
+  margin-bottom: 5rem;
 `
 
 const CategoryContainer = styled.div`
