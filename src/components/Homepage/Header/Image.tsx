@@ -31,6 +31,10 @@ const Header = styled.h3`
   font-size: 3rem;
   text-transform: uppercase;
   color: white;
+
+@media${device.laptop} {
+  left: 30%;
+}
 `
 
 const TextOnBlack = styled.div`
@@ -46,7 +50,10 @@ const TextOnBlack = styled.div`
     text-transform: capitalize;
     font-size: 1.5rem;
   }
-  
+
+@media${device.laptop} {
+  left: 35%;
+}
 `
 
 const TextTransparent = styled.div`
@@ -55,6 +62,11 @@ const TextTransparent = styled.div`
   left: 2%;
   font-size: 1.5rem;
   color: white;
+
+@media${device.laptop} {
+  bottom: 40%;
+  left: 45%;
+}
 `
 
 export const Image = () => {
