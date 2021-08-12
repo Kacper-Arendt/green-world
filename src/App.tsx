@@ -1,7 +1,6 @@
 import React from 'react';
 import styled, {createGlobalStyle} from 'styled-components';
-import {Header, BestBuys, Discounts, SeeAll} from './components/Components';
-import {Footer} from "./components/Footer";
+import {Homepage, Footer} from './components/Components';
 
 const GlobalStyles = createGlobalStyle`
   *,
@@ -35,10 +34,7 @@ function App() {
         <>
             <GlobalStyles/>
             <Wrapper>
-                <Header/>
-                <BestBuys/>
-                <Discounts/>
-                <SeeAll />
+                <Homepage />
                 <Footer />
             </Wrapper>
         </>

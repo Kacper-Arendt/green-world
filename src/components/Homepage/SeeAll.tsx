@@ -1,7 +1,7 @@
 import styled from "styled-components"
-import {Wrapper} from "./UI/WrapperEl";
-import {fruitsAndVegetables} from "../images/images";
-import {Button} from "./UI/Button";
+import {Wrapper} from "../UI/WrapperEl";
+import {fruitsAndVegetables} from "../../images/images";
+import {Button} from "../UI/Button";
 
 const WrapperEl = styled(Wrapper)`
   width: 100%;

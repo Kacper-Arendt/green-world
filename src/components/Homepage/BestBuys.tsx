@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import {Product} from "./Products/Product";
-import {ProductsData} from "./Products/ProductsData";
-import {Wrapper} from './UI/WrapperEl';
+import {Product} from "../Products/Product";
+import {ProductsData} from "../Products/ProductsData";
+import {Wrapper} from '../UI/WrapperEl';
 
 const WrapperEl = styled(Wrapper)`
   h2 {
