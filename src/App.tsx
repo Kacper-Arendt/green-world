@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, {createGlobalStyle} from 'styled-components';
 import {Header, BestBuys, Discounts, SeeAll} from './components/Components';
+import {Footer} from "./components/Footer";
 
 const GlobalStyles = createGlobalStyle`
   *,
@@ -16,7 +17,6 @@ const GlobalStyles = createGlobalStyle`
     width: 100%;
     height: 100%;
     background: var(--color-background);
-    height: 400vh;
   }
 
   :root {
@@ -39,6 +39,7 @@ function App() {
                 <BestBuys/>
                 <Discounts/>
                 <SeeAll />
+                <Footer />
             </Wrapper>
         </>
     );
