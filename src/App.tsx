@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, {createGlobalStyle} from 'styled-components';
 import {Homepage, Footer} from './components/Components';
+import { device } from './Models/MediaQueries';
 
 const GlobalStyles = createGlobalStyle`
   *,
@@ -16,6 +17,14 @@ const GlobalStyles = createGlobalStyle`
     width: 100%;
     height: 100%;
     background: var(--color-background);
+
+  @media${device.tablet} {
+    font-size: 71.25%;
+  } @media${device.laptop} {
+    font-size: 81.25%;
+  } @media${device.desktop} {
+    font-size: 91.25%;
+  }
   }
 
   :root {

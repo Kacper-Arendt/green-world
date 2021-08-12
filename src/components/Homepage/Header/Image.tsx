@@ -1,8 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import {main} from '../../../images/images';
+import {device} from "../../../Models/MediaQueries";
 
 const Wrapper = styled.div`
+  place-self: center;
   height: 25rem;
   width: 100%;
   background-image: linear-gradient(to right, rgba(0, 0, 0, .4), rgba(77, 77, 77, .5)), url(${main});
@@ -10,6 +12,16 @@ const Wrapper = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
+
+@media${device.tablet} {
+  height: 35rem;
+} @media${device.laptop} {
+  height: 40rem;
+  width: 90%;
+  max-width: 200rem;
+
+}
+
 `
 
 const Header = styled.h3`
@@ -34,6 +46,7 @@ const TextOnBlack = styled.div`
     text-transform: capitalize;
     font-size: 1.5rem;
   }
+  
 `
 
 const TextTransparent = styled.div`
