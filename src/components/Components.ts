@@ -1,4 +1,2 @@
-export * from './Header/Header';
-export * from './BestBuys';
-export * from './Discounts';
-export * from './SeeAll';
+export * from './Homepage/Homepage';
+export * from './Footer';

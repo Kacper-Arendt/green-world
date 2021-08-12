@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import {FaSearch} from "react-icons/fa";
-import { device } from "../../Models/MediaQueries";
+import { device } from "../../../Models/MediaQueries";
 
 const Form = styled.form`
   width: 15rem;

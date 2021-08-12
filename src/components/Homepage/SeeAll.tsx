@@ -1,13 +1,19 @@
 import styled from "styled-components"
-import {Wrapper} from "./UI/WrapperEl";
-import {fruitsAndVegetables} from "../images/images";
-import {Button} from "./UI/Button";
+import {Wrapper} from "../UI/WrapperEl";
+import {fruitsAndVegetables} from "../../images/images";
+import {Button} from "../UI/Button";
+import {device} from "../../Models/MediaQueries";
 
 const WrapperEl = styled(Wrapper)`
   width: 100%;
   height: 18rem;
   flex-direction: row;
   margin-bottom: 5rem;
+  align-self: center;
+  max-width: 100rem;
+@media${device.mobileM} {
+  width: 80%;
+}
 `
 
 const CategoryContainer = styled.div`
@@ -24,6 +30,14 @@ const CategoryContainer = styled.div`
     color: white;
     font-size: 1.5rem;
   }
+
+@media${device.mobileM} {
+  width: 30%;
+
+  p {
+    font-size: 2rem;
+  }
+}
 `
 
 const Image = styled.div`
@@ -42,7 +56,11 @@ const Image = styled.div`
     margin: 1rem;
     width: 50%;
     height: 3rem;
+    max-width: 25rem;
   }
+@media${device.mobileM} {
+  width: 70%;
+}
 `
 
 export const SeeAll = () => {
