@@ -1,7 +1,9 @@
 import React from 'react';
 import styled, {createGlobalStyle} from 'styled-components';
-import {Homepage, Footer} from './components/Components';
-import { device } from './Models/MediaQueries';
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import {Homepage, Footer, Market, SearchBar} from './components/Components';
+import {device} from './Models/MediaQueries';
+import {NavBar} from "./components/Nav/NavBar";
 
 const GlobalStyles = createGlobalStyle`
   *,
@@ -11,6 +13,7 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
     padding: 0;
   }
+
   html {
     box-sizing: border-box;
     font-size: 62.5%;
@@ -43,8 +46,18 @@ function App() {
         <>
             <GlobalStyles/>
             <Wrapper>
-                <Homepage />
-                <Footer />
+                <NavBar/>
+                <Router>
+                    <Switch>
+                        <Route path='/market'>
+                            <Market/>
+                        </Route>
+                        <Route path='/'>
+                            <Homepage/>
+                        </Route>
+                    </Switch>
+                </Router>
+                <Footer/>
             </Wrapper>
         </>
     );
