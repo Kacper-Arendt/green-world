@@ -1,10 +1,11 @@
 import styled from "styled-components"
 import {Wrapper} from "./UI/WrapperEl";
 import {fruitsAndVegetables} from "../images/images";
+import {Button} from "./UI/Button";
 
 const WrapperEl = styled(Wrapper)`
   width: 100%;
-  height: 15rem;
+  height: 18rem;
   flex-direction: row;
 `
 
@@ -38,7 +39,8 @@ const Image = styled.div`
 
   button {
     margin: 1rem;
-    padding: .5rem 1rem;
+    width: 50%;
+    height: 3rem;
   }
 `
 
@@ -49,7 +51,7 @@ export const SeeAll = () => {
                 <p>Vegetables and Fruits from proven farmers </p>
             </CategoryContainer>
             <Image>
-                <button>See All</button>
+                <Button backgroundColor='#A62940'>See All</Button>
             </Image>
         </WrapperEl>
     )
