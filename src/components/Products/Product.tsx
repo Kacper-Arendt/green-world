@@ -8,7 +8,7 @@ interface IPrice{
 const Item = styled.div<IPrice>`
   width: 23rem;
   height: 35rem;
-
+  margin: 2rem 1rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 60% 6rem 1fr 4rem  4rem;

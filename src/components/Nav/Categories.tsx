@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import {fruits, sale, vegetables} from '../../../images/images'
+import {fruits, sale, vegetables} from '../../images/images'
 
 const StyledCategories = styled.div`
   height: 15rem;
