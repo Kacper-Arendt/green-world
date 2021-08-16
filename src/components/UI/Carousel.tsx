@@ -1,28 +1,45 @@
 import styled from "styled-components";
 import {IProduct} from "../../Models/IProduct";
-import {useState} from "react";
-import {AiOutlineArrowLeft, AiOutlineArrowRight} from "react-icons/ai";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 import {Product} from "../Products/Product";
 
-const StyledSlider = styled.div`
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+const StyledCarousel = styled.div`
+  width: 90%;
+  height: 100%;
+
+
 `
 
-const Arrow = styled.span`
-  position: absolute;
-  top: 50%;
-  font-size: 2.5rem;
+const StyledSlider = styled(Slider)`
+  .slick-slide {
+    display: grid;
+    place-items: center;
+    margin: auto;
+  }
+  
+  .slick-list{
+    margin: 1rem;
+  }
+  
+  .slick-prev{
+    left: -5px;
+    z-index: 1000;
 
-  :first-of-type {
-    right: -2rem;
+  }
+  .slick-next{
+    right: -5px;
+    z-index: 1000;
   }
 
-  :last-of-type {
-    left: -2rem;
+  .slick-prev:before,
+  .slick-next:before {
+    color: green;
+    font-size: 2.5rem;
   }
+  
+  
 `
 
 interface CarouselProps {
@@ -30,37 +47,60 @@ interface CarouselProps {
 }
 
 export const Carousel = (props: CarouselProps) => {
-    const [current, setCurrent] = useState(0);
-    const length = props.array.length;
-
-    const nextSlide = () => {
-        setCurrent(current === length - 1 ? 0 : current + 1);
-    };
-
-    const prevSlide = () => {
-        setCurrent(current === 0 ? length - 1 : current - 1);
+    const settings = {
+        dots: true,
+        infinite: false,
+        speed: 500,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        initialSlide: 0,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    initialSlide: 2,
+                    dots: false
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    dots: false
+                }
+            }
+        ]
     };
 
     return (
-        <StyledSlider>
-            <Arrow onClick={prevSlide}><AiOutlineArrowRight/></Arrow>
-            {props.array.map(el => {
-                return (
-                    <div key={el.id}>
-                        {el.id === current && (
-                            <Product
-                                id={el.id}
-                                name={el.name}
-                                alt={el.alt}
-                                img={el.img}
-                                price={el.price}
-                                per={el.per}/>
-                        )}
-                    </div>
-                )
-            })}
-
-            <Arrow onClick={nextSlide}><AiOutlineArrowLeft/></Arrow>
-        </StyledSlider>
+        <StyledCarousel>
+            <StyledSlider {...settings}>
+                {props.array.map(el => {
+                    return (
+                        <Product
+                            id={el.id}
+                            name={el.name}
+                            alt={el.alt}
+                            img={el.img}
+                            price={el.price}
+                            per={el.per}
+                            newPrice={el.newPrice}
+                        />
+                    )
+                })}
+            </StyledSlider>
+        </StyledCarousel>
     )
 }
