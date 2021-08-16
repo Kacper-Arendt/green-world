@@ -46,15 +46,17 @@ const StyledSlider = styled(Slider)`
 
 interface CarouselProps {
     children: any,
+    autoplay: boolean,
+    slidesToScroll: number
 }
 
-export const Carousel = ({children}: CarouselProps) => {
+export const Carousel = ({children, autoplay, slidesToScroll}: CarouselProps) => {
     const settings = {
         speed: 3000,
         slidesToShow: 4,
-        slidesToScroll: 1,
+        slidesToScroll: slidesToScroll,
         initialSlide: 0,
-        autoplay: true,
+        autoplay: autoplay,
         infinite: true,
         autoplaySpeed: 3000,
         dots: true,

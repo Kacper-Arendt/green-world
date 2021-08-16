@@ -33,7 +33,8 @@ export const ProductsData: Array<IProduct> = [
         price: 5,
         per: 'kg',
         img: "https://ik.imagekit.io/kacper/green-world/darkSweetGrapes_Y7lOoFetxI.jpg?updatedAt=1628794762905",
-        alt: "grapes"
+        alt: "grapes",
+        newPrice: 4,
     },
     {
         id: 3,
@@ -87,6 +88,7 @@ export const ProductsData: Array<IProduct> = [
         per: 'bunch',
         img: 'https://ik.imagekit.io/kacper/green-world/radish_Nzu-Bafxm.jpg?updatedAt=1628802627246',
         alt: 'radish on black background',
+        newPrice: 1,
     },
     {
     id: 10,
@@ -124,6 +126,7 @@ export const ProductsData: Array<IProduct> = [
         per: 'kg',
         img: 'https://ik.imagekit.io/kacper/green-world/cauliflower_5wCv-MQ8O.jpg?updatedAt=1628803780745',
         alt: 'Cauliflower on the desk',
+        newPrice: 3,
     },    {
         id:15 ,
         name: 'Beetroot',
@@ -138,5 +141,6 @@ export const ProductsData: Array<IProduct> = [
         per: 'kg',
         img: 'https://ik.imagekit.io/kacper/green-world/lettuce_-b8bbE0gJ.jpg?updatedAt=1628803780500',
         alt: 'Lettuce on dark background',
+        newPrice: 2,
     },
 ]

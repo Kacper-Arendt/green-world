@@ -15,7 +15,7 @@ export const BestBuys = () => {
     return (
         <WrapperEl>
             <h2>Best Buys</h2>
-            <Carousel>
+            <Carousel autoplay={true} slidesToScroll={1}>
                 {ProductsData.map(el => {
                     if (!el.newPrice) {
                         return (
