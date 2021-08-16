@@ -4,11 +4,12 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import {Product} from "../Products/Product";
+import {useEffect, useState} from "react";
 
 const StyledCarousel = styled.div`
   width: 90%;
   height: 100%;
-  max-width: 120rem;
+  max-width: 130rem;
 `
 
 const StyledSlider = styled(Slider)`
@@ -18,13 +19,19 @@ const StyledSlider = styled(Slider)`
     margin: auto;
     overflow: hidden;
   }
-  
-  .slick-prev{
+
+  .slick-track {
+    display: flex;
+    align-items: center;
+  }
+
+  .slick-prev {
     left: -5px;
     z-index: 1000;
 
   }
-  .slick-next{
+
+  .slick-next {
     right: -5px;
     z-index: 1000;
   }
@@ -37,25 +44,25 @@ const StyledSlider = styled(Slider)`
 `
 
 interface CarouselProps {
-    array: Array<IProduct>,
+    children: any,
 }
 
-export const Carousel = (props: CarouselProps) => {
+export const Carousel = ({children}: CarouselProps) => {
     const settings = {
-        dots: true,
-        infinite: false,
-        speed: 500,
+        speed: 3000,
         slidesToShow: 4,
-        slidesToScroll: 4,
+        slidesToScroll: 1,
         initialSlide: 0,
+        autoplay: true,
+        infinite: true,
+        autoplaySpeed: 3000,
+        dots: true,
+
         responsive: [
             {
                 breakpoint: 1440,
                 settings: {
                     slidesToShow: 3,
-                    slidesToScroll: 3,
-                    infinite: true,
-                    dots: true
                 }
             },
             {
@@ -63,8 +70,6 @@ export const Carousel = (props: CarouselProps) => {
                 settings: {
                     slidesToShow: 2,
                     slidesToScroll: 2,
-                    initialSlide: 2,
-                    dots: true
                 }
             },
             {
@@ -73,6 +78,9 @@ export const Carousel = (props: CarouselProps) => {
                     slidesToShow: 1,
                     slidesToScroll: 1,
                     dots: false,
+                    autoplay: false,
+                    speed: 500,
+
                 }
             },
         ]
@@ -81,20 +89,9 @@ export const Carousel = (props: CarouselProps) => {
     return (
         <StyledCarousel>
             <StyledSlider {...settings}>
-                {props.array.map(el => {
-                    return (
-                        <Product
-                            id={el.id}
-                            name={el.name}
-                            alt={el.alt}
-                            img={el.img}
-                            price={el.price}
-                            per={el.per}
-                            newPrice={el.newPrice}
-                        />
-                    )
-                })}
+                {children}
             </StyledSlider>
+
         </StyledCarousel>
     )
 }
