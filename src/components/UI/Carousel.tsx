@@ -23,6 +23,7 @@ const StyledSlider = styled(Slider)`
   .slick-track {
     display: flex;
     align-items: center;
+    justify-content: center;
   }
 
   .slick-prev {
