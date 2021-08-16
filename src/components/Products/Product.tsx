@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import {IProduct} from "../../Models/IProduct";
 
-interface IPrice{
+interface IPrice {
     discount?: number
 }
 
@@ -69,7 +69,7 @@ const Price = styled.p`
 const NormalPrice = styled(Price)<IPrice>`
   grid-area: price;
   justify-self: start;
-  text-decoration:${(props) => props.discount && 'line-through'};
+  text-decoration: ${(props) => props.discount && 'line-through'};
 `
 
 const NewPrice = styled(Price)<IPrice>`
@@ -80,7 +80,7 @@ const NewPrice = styled(Price)<IPrice>`
 
 export const Product = (props: IProduct) => {
     return (
-        <Item key={props.id} >
+        <Item key={props.id}>
             <img src={props.img} alt={props.alt}/>
             <h3>{props.name}</h3>
             <Line/>

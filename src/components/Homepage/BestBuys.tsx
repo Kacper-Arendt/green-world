@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import {Product} from "../Products/Product";
 import {ProductsData} from "../Products/ProductsData";
 import {Wrapper} from '../UI/WrapperEl';
+import {Carousel} from "../UI/Carousel";
 
 const WrapperEl = styled(Wrapper)`
   h2 {
@@ -14,15 +15,26 @@ export const BestBuys = () => {
     return (
         <WrapperEl>
             <h2>Best Buys</h2>
-            <Product
-                id={ProductsData[0].id}
-                name={ProductsData[0].name}
-                img={ProductsData[0].img}
-                alt={ProductsData[0].alt}
-                price={ProductsData[0].price}
-                per={ProductsData[0].per}
-                newPrice={ProductsData[0].newPrice}
-            />
+            <Carousel autoplay={true} slidesToScroll={1}>
+                {ProductsData.map(el => {
+                    if (!el.newPrice) {
+                        return (
+                            <div key={el.id}>
+                                <Product id={el.id}
+                                         name={el.name}
+                                         alt={el.alt}
+                                         img={el.img}
+                                         price={el.price}
+                                         per={el.per}
+                                         newPrice={el.newPrice}
+                                />
+                            </div>
+                        )
+                    } else {
+                        return null
+                    }
+                })}
+            </Carousel>
         </WrapperEl>
     )
 }
