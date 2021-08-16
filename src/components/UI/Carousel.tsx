@@ -1,7 +1,8 @@
 import styled from "styled-components";
-import {Product} from "../Products/Product";
-import {ProductsData} from "../Products/ProductsData";
 import {IProduct} from "../../Models/IProduct";
+import {useState} from "react";
+import {AiOutlineArrowLeft, AiOutlineArrowRight} from "react-icons/ai";
+import {Product} from "../Products/Product";
 
 const StyledSlider = styled.div`
   position: relative;
@@ -13,20 +14,19 @@ const StyledSlider = styled.div`
 const Arrow = styled.span`
   position: absolute;
   top: 50%;
-  font-size: 2rem;
+  font-size: 2.5rem;
 
   :first-of-type {
-    right: 20px;
+    right: -2rem;
   }
 
   :last-of-type {
-    left: 20px;
+    left: -2rem;
   }
 `
 
 interface CarouselProps {
-    array: Array<IProduct>
-    objects: Array<any>
+    array: Array<IProduct>,
 }
 
 export const Carousel = (props: CarouselProps) => {
@@ -43,13 +43,24 @@ export const Carousel = (props: CarouselProps) => {
 
     return (
         <StyledSlider>
-            <Arrow onClick={prevSlide}></Arrow>
-            {props.objects}
-            <Arrow onClick={nextSlide}></Arrow>
+            <Arrow onClick={prevSlide}><AiOutlineArrowRight/></Arrow>
+            {props.array.map(el => {
+                return (
+                    <div key={el.id}>
+                        {el.id === current && (
+                            <Product
+                                id={el.id}
+                                name={el.name}
+                                alt={el.alt}
+                                img={el.img}
+                                price={el.price}
+                                per={el.per}/>
+                        )}
+                    </div>
+                )
+            })}
+
+            <Arrow onClick={nextSlide}><AiOutlineArrowLeft/></Arrow>
         </StyledSlider>
     )
-}
-
-function useState(arg0: number): [any, any] {
-    throw new Error("Function not implemented.");
 }
