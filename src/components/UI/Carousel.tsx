@@ -8,8 +8,7 @@ import {Product} from "../Products/Product";
 const StyledCarousel = styled.div`
   width: 90%;
   height: 100%;
-
-
+  max-width: 120rem;
 `
 
 const StyledSlider = styled(Slider)`
@@ -17,10 +16,7 @@ const StyledSlider = styled(Slider)`
     display: grid;
     place-items: center;
     margin: auto;
-  }
-  
-  .slick-list{
-    margin: 1rem;
+    overflow: hidden;
   }
   
   .slick-prev{
@@ -35,11 +31,9 @@ const StyledSlider = styled(Slider)`
 
   .slick-prev:before,
   .slick-next:before {
-    color: green;
+    color: black;
     font-size: 2.5rem;
   }
-  
-  
 `
 
 interface CarouselProps {
@@ -56,7 +50,7 @@ export const Carousel = (props: CarouselProps) => {
         initialSlide: 0,
         responsive: [
             {
-                breakpoint: 1024,
+                breakpoint: 1440,
                 settings: {
                     slidesToShow: 3,
                     slidesToScroll: 3,
@@ -65,22 +59,22 @@ export const Carousel = (props: CarouselProps) => {
                 }
             },
             {
-                breakpoint: 600,
+                breakpoint: 1024,
                 settings: {
                     slidesToShow: 2,
                     slidesToScroll: 2,
                     initialSlide: 2,
-                    dots: false
+                    dots: true
                 }
             },
             {
-                breakpoint: 480,
+                breakpoint: 720,
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1,
-                    dots: false
+                    dots: false,
                 }
-            }
+            },
         ]
     };
 
