@@ -1,5 +1,8 @@
 import styled from "styled-components";
 import {IProduct} from "../../Models/IProduct";
+import {useContext} from "react";
+import {CartContext} from "../../Context/CartContext";
+import {Types} from "../../Context/CartReducers";
 
 interface IPrice {
     discount?: number
@@ -78,6 +81,13 @@ const NewPrice = styled(Price)<IPrice>`
 `
 
 export const Product = (props: IProduct) => {
+    const {state, dispatch} = useContext(CartContext);
+
+    const addToCart = () => {
+        dispatch({type: Types.Add, payload: {id: props.id, name: props.name, amount: 1}})
+        console.log(state.products);
+    }
+
     return (
         <Item key={props.id}>
             <img src={props.img} alt={props.alt}/>
@@ -87,7 +97,7 @@ export const Product = (props: IProduct) => {
             {props.newPrice &&
             <NewPrice discount={props.newPrice}><span>{props.newPrice}$</span>/{props.per}</NewPrice>
             }
-            <Button>Add to cart</Button>
+            <Button onClick={addToCart}>Add to cart</Button>
         </Item>
     )
 }
