@@ -4,7 +4,9 @@ import {ProductsData} from "../Products/ProductsData";
 
 const Wrapper = styled.div`
   background-color: white;
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `
 
 export const Cart = () => {
