@@ -7,3 +7,8 @@ export interface IProduct {
     per: string
     newPrice?: number,
 }
+
+export interface IProductInCart extends IProduct {
+    quantity: number,
+    finalPrice: number
+}

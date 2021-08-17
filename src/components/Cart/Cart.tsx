@@ -1,26 +1,31 @@
-import styled from 'styled-components';
-import {Product} from "../Products/Product";
+import styled from "styled-components";
+import {Product} from "./Product";
 import {ProductsData} from "../Products/ProductsData";
-import {Wrapper} from '../UI/WrapperEl';
-import {Carousel} from "../UI/Carousel";
+import { Summary } from "./Summary";
 
-const WrapperEl = styled(Wrapper)`
-  h2 {
-    color: black;
-    font-size: 4rem;
+const Wrapper = styled.div`
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  h2{
+    font-size: 2rem;
+    padding: 1rem;
   }
 `
 
-export const BestBuys = () => {
+export const Cart = () => {
     return (
-        <WrapperEl>
-            <h2>Best Buys</h2>
-            <Carousel autoplay={true} slidesToScroll={1}>
-                {ProductsData.map((el, key) => {
-                    if (!el.newPrice) {
+        <Wrapper>
+            <h2>Shopping Cart</h2>
+            {ProductsData.map((el, key) => {
+                    if (el.newPrice) {
                         return (
                             <Product
                                 key={key}
+                                quantity={13}
+                                finalPrice={33}
                                 id={el.id}
                                 name={el.name}
                                 alt={el.alt}
@@ -33,8 +38,9 @@ export const BestBuys = () => {
                     } else {
                         return null
                     }
-                })}
-            </Carousel>
-        </WrapperEl>
+                }
+            )}
+            <Summary totalPrice={164} totalProducts={22}/>
+        </Wrapper>
     )
 }

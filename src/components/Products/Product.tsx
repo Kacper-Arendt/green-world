@@ -65,7 +65,6 @@ const Price = styled.p`
   }
 `
 
-
 const NormalPrice = styled(Price)<IPrice>`
   grid-area: price;
   justify-self: start;

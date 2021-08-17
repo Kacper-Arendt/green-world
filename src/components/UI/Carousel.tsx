@@ -1,10 +1,7 @@
 import styled from "styled-components";
-import {IProduct} from "../../Models/IProduct";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import {Product} from "../Products/Product";
-import {useEffect, useState} from "react";
 
 const StyledCarousel = styled.div`
   width: 90%;
