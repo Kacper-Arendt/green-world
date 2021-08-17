@@ -8,16 +8,22 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  
+  h2{
+    font-size: 2rem;
+    padding: 1rem;
+  }
 `
 
 export const Cart = () => {
     return (
         <Wrapper>
             <h2>Shopping Cart</h2>
-            {ProductsData.map(el => {
+            {ProductsData.map((el, key) => {
                     if (el.newPrice) {
                         return (
                             <Product
+                                key={key}
                                 quantity={13}
                                 finalPrice={33}
                                 id={el.id}
