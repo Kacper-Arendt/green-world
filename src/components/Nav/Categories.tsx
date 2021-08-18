@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import {fruits, sale, vegetables} from '../../images/images'
 import {useHistory} from "react-router-dom";
 
 const StyledCategories = styled.div`
@@ -24,15 +23,18 @@ const Category = styled.div`
   background-repeat: no-repeat;
   cursor: pointer;
   :first-of-type {
-    background-image: url(${vegetables});
+    background-image: 
+            url('https://ik.imagekit.io/kacper/green-world/vegetables_OFGFc3M14y.jpg?updatedAt=1629317073574');
   }
 
   :nth-of-type(2) {
-    background-image: url(${fruits});
+    background-image: 
+            url('https://ik.imagekit.io/kacper/green-world/fruits_8PGEyUses.jpg?updatedAt=1629317072982');
   }
 
   :nth-of-type(3) {
-    background-image: url(${sale});
+    background-image:
+            url('https://ik.imagekit.io/kacper/green-world/sale_DBv3o_ygr.jpg?updatedAt=1629317073220');
   }
 `
 

@@ -1,6 +1,5 @@
 import styled from "styled-components"
 import {Wrapper} from "../UI/WrapperEl";
-import {fruitsAndVegetables} from "../../images/images";
 import {Button} from "../UI/Button";
 import {device} from "../../Models/MediaQueries";
 
@@ -43,7 +42,8 @@ const CategoryContainer = styled.div`
 const Image = styled.div`
   width: 55%;
   height: 100%;
-  background-image: url(${fruitsAndVegetables});
+  background-image:
+          url('https://ik.imagekit.io/kacper/green-world/fruitsAndVegetables_gDaEXxPQ5.jpg?updatedAt=1629317073540');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
