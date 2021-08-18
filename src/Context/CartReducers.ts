@@ -22,10 +22,12 @@ export const CartReducers = (state: IProductInCart[], action: ProductActions) =>
             }
             return updatedCart;
         case Types.Subtract:
-            if (state[action.payload.id].amount > 1) {
-                updatedCart[productIndex].amount = updatedCart[productIndex].amount - 1
+            if (updatedCart[productIndex].amount > 1) {
+                updatedCart[productIndex].amount --
             } else {
-                updatedCart.filter(el => el.id !== action.payload.id)
+                return [
+                    ...state.filter(product => product.id !== action.payload.id),
+                ]
             }
             return updatedCart
         case Types.Delete:

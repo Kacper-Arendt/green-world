@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import {SearchBar} from "./SearchBar";
-import {BiCartAlt, BiUser} from "react-icons/bi";
+import {BiCartAlt, BiUser, BiHomeAlt} from "react-icons/bi";
 import {Categories} from "./Categories";
 import {useHistory} from 'react-router-dom';
 
@@ -37,6 +37,7 @@ export const NavBar = () => {
             <Bar>
                 <SearchBar/>
                 <Icons>
+                    <BiHomeAlt onClick={() => history.push('/')}/>
                     <BiCartAlt onClick={() => history.push('/cart')}/>
                     <BiUser/>
                 </Icons>

@@ -39,7 +39,7 @@ export const Cart = () => {
                     )
                 }
             )}
-            <Summary totalPrice={164} totalProducts={22}/>
+            <Summary totalPrice={0} totalProducts={0}/>
         </Wrapper>
     )
 }
