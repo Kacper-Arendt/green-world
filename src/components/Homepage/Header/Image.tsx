@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import {main} from '../../../images/images';
 import {device} from "../../../Models/MediaQueries";
 
 const Wrapper = styled.div`
   place-self: center;
   height: 25rem;
   width: 100%;
-  background-image: linear-gradient(to right, rgba(0, 0, 0, .4), rgba(77, 77, 77, .5)), url(${main});
+  background-image: linear-gradient(to right, rgba(0, 0, 0, .4), rgba(77, 77, 77, .5)), 
+  url('https://ik.imagekit.io/kacper/green-world/main_9IC6k3TYy1.jpg?updatedAt=1629317073547');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

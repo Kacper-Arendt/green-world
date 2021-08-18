@@ -129,7 +129,6 @@ const Line = styled.div`
 export const Product = (props: IProductInCart) => {
     const {dispatch} = useContext(CartContext);
 
-
     return (
         <Wrapper key={props.id}>
             <StyledImg src={props.img}
@@ -143,7 +142,7 @@ export const Product = (props: IProductInCart) => {
                 <button onClick={() => dispatch({type: Types.Subtract, payload: {id: props.id}})}>-</button>
             </ChangeValue>
             <StyledP>Total: {props.finalPrice} $</StyledP>
-            <Remove><AiOutlineDelete/></Remove>
+            <Remove onClick={() => dispatch({type: Types.Delete, payload: {id: props.id}})}><AiOutlineDelete/></Remove>
             <Line></Line>
         </Wrapper>
     )

@@ -5,6 +5,7 @@ import {useContext} from "react";
 import {CartContext} from "../../Context/CartContext";
 
 const Wrapper = styled.div`
+  min-height: 90vh;
   background-color: white;
   display: flex;
   flex-direction: column;
