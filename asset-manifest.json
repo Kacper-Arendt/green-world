@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.js": "/green-world/static/js/main.a160591b.chunk.js",
+    "main.js.map": "/green-world/static/js/main.a160591b.chunk.js.map",
+    "runtime-main.js": "/green-world/static/js/runtime-main.56f73f3e.js",
+    "runtime-main.js.map": "/green-world/static/js/runtime-main.56f73f3e.js.map",
+    "static/css/2.d8931218.chunk.css": "/green-world/static/css/2.d8931218.chunk.css",
+    "static/js/2.a5fe9e53.chunk.js": "/green-world/static/js/2.a5fe9e53.chunk.js",
+    "static/js/2.a5fe9e53.chunk.js.map": "/green-world/static/js/2.a5fe9e53.chunk.js.map",
+    "index.html": "/green-world/index.html",
+    "static/css/2.d8931218.chunk.css.map": "/green-world/static/css/2.d8931218.chunk.css.map",
+    "static/js/2.a5fe9e53.chunk.js.LICENSE.txt": "/green-world/static/js/2.a5fe9e53.chunk.js.LICENSE.txt",
+    "static/media/slick-theme.css": "/green-world/static/media/slick.c94f7671.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.56f73f3e.js",
+    "static/css/2.d8931218.chunk.css",
+    "static/js/2.a5fe9e53.chunk.js",
+    "static/js/main.a160591b.chunk.js"
+  ]
+}
