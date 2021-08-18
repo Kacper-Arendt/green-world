@@ -49,8 +49,8 @@ function App() {
             <GlobalStyles/>
             <Wrapper>
                 <Provider>
-                    <NavBar/>
                     <Router>
+                        <NavBar/>
                         <Switch>
                             <Route path='/cart'>
                                 <Cart/>

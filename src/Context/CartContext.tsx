@@ -1,6 +1,6 @@
 import React, {createContext, useReducer} from "react";
-import {CartInitialType} from "../Models/CartContext";
-import {CartReducers, ProductActions} from "./CartReducers";
+import {CartInitialType, ProductActions} from "../Models/CartContext";
+import {CartReducers} from "./CartReducers";
 
 const initialState = {
     products: []

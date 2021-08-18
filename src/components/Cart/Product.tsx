@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import {AiOutlineDelete} from "react-icons/ai";
-import {IProductInCart} from "../../Models/IProduct";
+import {IProductInCart} from "../../Models/CartContext";
 import {device} from "../../Models/MediaQueries";
 
 interface IProps {
@@ -132,7 +132,7 @@ export const Product = (props: IProductInCart) => {
             <StyledP>{props.newPrice && `${props.newPrice}$/${props.per}`}</StyledP>
             <ChangeValue>
                 <button>+</button>
-                <StyledP>{props.quantity}</StyledP>
+                <StyledP>{props.amount}</StyledP>
                 <button>-</button>
             </ChangeValue>
             <StyledP>Total: {props.finalPrice} $</StyledP>

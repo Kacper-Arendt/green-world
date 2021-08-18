@@ -1,12 +1,4 @@
-type ActionMap<M extends { [index: string]: any }> = {
-    [Key in keyof M]: M[Key] extends undefined ?
-        { type: Key; }
-        :
-        {
-            type: Key;
-            payload: M[Key]
-        }
-};
+import {IProductInCart, ProductActions} from "../Models/CartContext";
 
 export enum Types {
     Add = 'ADD_PRODUCT',
@@ -14,29 +6,7 @@ export enum Types {
     Delete = 'DELETE_PRODUCT',
 }
 
-type ProductType = {
-    id: number,
-    name: string,
-    amount: number,
-}
-
-type ProductPayload = {
-    [Types.Add]: {
-        id: number,
-        name: string,
-        amount: number
-    },
-    [Types.Subtract]: {
-        id: number
-    }
-    [Types.Delete]: {
-        id: number,
-    }
-}
-export type ProductActions =
-    ActionMap<ProductPayload>[keyof ActionMap<ProductPayload>];
-
-export const CartReducers = (state: ProductType[], action: ProductActions) => {
+export const CartReducers = (state: IProductInCart[], action: ProductActions) => {
     const updatedCart = [...state];
     const productIndex = updatedCart.findIndex(value => value.id === action.payload.id)
 
@@ -45,7 +15,9 @@ export const CartReducers = (state: ProductType[], action: ProductActions) => {
             if (productIndex < 0) {
                 updatedCart.push(action.payload)
             } else {
-                updatedCart[productIndex].amount = updatedCart[productIndex].amount + 1
+                updatedCart[productIndex].amount = updatedCart[productIndex].amount + 1;
+                updatedCart[productIndex].finalPrice =
+                    updatedCart[productIndex].finalPrice + updatedCart[productIndex].price;
             }
             return updatedCart;
         case Types.Subtract:

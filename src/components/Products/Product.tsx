@@ -80,12 +80,31 @@ const NewPrice = styled(Price)<IPrice>`
   color: ${(props) => props.discount && 'green'};
 `
 
-export const Product = (props: IProduct) => {
-    const {state, dispatch} = useContext(CartContext);
+export const Product = (props: IProduct): JSX.Element => {
+    const {dispatch} = useContext(CartContext);
 
-    const addToCart = () => {
-        dispatch({type: Types.Add, payload: {id: props.id, name: props.name, amount: 1}})
-        console.log(state.products);
+    const addToCart = (): void => {
+        let priceAfterDiscount: number;
+        if (props.newPrice) {
+            priceAfterDiscount = props.newPrice;
+        } else {
+            priceAfterDiscount = props.price;
+        }
+        dispatch(
+            {
+                type: Types.Add,
+                payload: {
+                    id: props.id,
+                    name: props.name,
+                    amount: 1,
+                    price: priceAfterDiscount,
+                    newPrice: props.newPrice,
+                    img: props.img,
+                    alt: props.alt,
+                    per: props.per,
+                    finalPrice: priceAfterDiscount
+                }
+            })
     }
 
     return (

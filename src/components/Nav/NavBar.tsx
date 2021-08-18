@@ -3,6 +3,8 @@ import styled from "styled-components";
 import {SearchBar} from "./SearchBar";
 import {BiCartAlt, BiUser} from "react-icons/bi";
 import {Categories} from "./Categories";
+import {useHistory} from 'react-router-dom';
+
 
 const StyledHeader = styled.div`
   display: flex;
@@ -23,16 +25,19 @@ const Icons = styled.span`
 
   svg {
     margin-right: 2rem;
+    cursor: pointer;
   }
 `
 
 export const NavBar = () => {
+    const history = useHistory();
+
     return (
         <StyledHeader>
             <Bar>
                 <SearchBar/>
                 <Icons>
-                    <BiCartAlt/>
+                    <BiCartAlt onClick={() => history.push('/cart')}/>
                     <BiUser/>
                 </Icons>
             </Bar>
