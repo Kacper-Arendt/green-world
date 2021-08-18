@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import {fruits, sale, vegetables} from '../../images/images'
+import {useHistory} from "react-router-dom";
 
 const StyledCategories = styled.div`
   height: 15rem;
@@ -21,7 +22,7 @@ const Category = styled.div`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
+  cursor: pointer;
   :first-of-type {
     background-image: url(${vegetables});
   }
@@ -36,11 +37,13 @@ const Category = styled.div`
 `
 
 export const Categories = () => {
+    const history = useHistory();
+
     return (
         <StyledCategories>
-            <Category/>
-            <Category/>
-            <Category/>
+            <Category onClick={() => history.push('/market')}/>
+            <Category onClick={() => history.push('/market')}/>
+            <Category onClick={() => history.push('/market')}/>
         </StyledCategories>
     )
 }

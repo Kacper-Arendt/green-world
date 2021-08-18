@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import {Homepage, Footer, Market, Cart} from './components/Components';
 import {device} from './Models/MediaQueries';
 import {NavBar} from "./components/Nav/NavBar";
+import { Provider } from './Context/CartContext';
 
 const GlobalStyles = createGlobalStyle`
   *,
@@ -47,21 +48,23 @@ function App() {
         <>
             <GlobalStyles/>
             <Wrapper>
-                <NavBar/>
-                <Router>
-                    <Switch>
-                        <Route path='/cart'>
-                            <Cart />
-                        </Route>
-                        <Route path='/market'>
-                            <Market/>
-                        </Route>
-                        <Route path='/'>
-                            <Homepage/>
-                        </Route>
-                    </Switch>
-                </Router>
-                <Footer/>
+                <Provider>
+                    <Router>
+                        <NavBar/>
+                        <Switch>
+                            <Route path='/cart'>
+                                <Cart/>
+                            </Route>
+                            <Route path='/market'>
+                                <Market/>
+                            </Route>
+                            <Route path='/'>
+                                <Homepage/>
+                            </Route>
+                        </Switch>
+                    </Router>
+                    <Footer/>
+                </Provider>
             </Wrapper>
         </>
     );

@@ -1,5 +1,8 @@
 import styled from "styled-components";
 import {IProduct} from "../../Models/IProduct";
+import {useContext} from "react";
+import {CartContext} from "../../Context/CartContext";
+import {Types} from "../../Context/CartReducers";
 
 interface IPrice {
     discount?: number
@@ -77,7 +80,33 @@ const NewPrice = styled(Price)<IPrice>`
   color: ${(props) => props.discount && 'green'};
 `
 
-export const Product = (props: IProduct) => {
+export const Product = (props: IProduct): JSX.Element => {
+    const {dispatch} = useContext(CartContext);
+
+    const addToCart = (): void => {
+        let priceAfterDiscount: number;
+        if (props.newPrice) {
+            priceAfterDiscount = props.newPrice;
+        } else {
+            priceAfterDiscount = props.price;
+        }
+        dispatch(
+            {
+                type: Types.Add,
+                payload: {
+                    id: props.id,
+                    name: props.name,
+                    amount: 1,
+                    price: priceAfterDiscount,
+                    newPrice: props.newPrice,
+                    img: props.img,
+                    alt: props.alt,
+                    per: props.per,
+                    finalPrice: priceAfterDiscount
+                }
+            })
+    }
+
     return (
         <Item key={props.id}>
             <img src={props.img} alt={props.alt}/>
@@ -87,7 +116,7 @@ export const Product = (props: IProduct) => {
             {props.newPrice &&
             <NewPrice discount={props.newPrice}><span>{props.newPrice}$</span>/{props.per}</NewPrice>
             }
-            <Button>Add to cart</Button>
+            <Button onClick={addToCart}>Add to cart</Button>
         </Item>
     )
 }

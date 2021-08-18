@@ -33,9 +33,10 @@ export const Market = () => {
     return (
         <Wrapper>
             <h2>Market</h2>
-            {ProductsData.map(el => {
+            {ProductsData.map((el, key) => {
                 return (
                     <Product
+                        key={key}
                         id={el.id}
                         name={el.name}
                         img={el.img}

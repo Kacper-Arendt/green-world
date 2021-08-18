@@ -1,7 +1,10 @@
 import styled from "styled-components";
 import {AiOutlineDelete} from "react-icons/ai";
-import {IProductInCart} from "../../Models/IProduct";
+import {IProductInCart} from "../../Models/CartContext";
 import {device} from "../../Models/MediaQueries";
+import {useContext} from "react";
+import {CartContext} from "../../Context/CartContext";
+import {Types} from "../../Context/CartReducers";
 
 interface IProps {
     discount?: number,
@@ -30,7 +33,7 @@ const Wrapper = styled.div`
           "line line line line line line line";
   grid-column-gap: 1rem;
   margin: 1.5rem 0;
-} 
+}
 `
 
 const StyledImg = styled.img`
@@ -74,9 +77,10 @@ const StyledP = styled.p<IProps>`
   }
 
 @media${device.tablet} {
-  :first-of-type{
+  :first-of-type {
     white-space: normal;
   }
+
   :nth-of-type(2) {
     align-self: center;
     justify-self: center;
@@ -85,7 +89,7 @@ const StyledP = styled.p<IProps>`
   :nth-of-type(3) {
     align-self: center;
   }
-  }
+}
 `
 
 const ChangeValue = styled.div`
@@ -123,6 +127,9 @@ const Line = styled.div`
 `
 
 export const Product = (props: IProductInCart) => {
+    const {dispatch} = useContext(CartContext);
+
+
     return (
         <Wrapper key={props.id}>
             <StyledImg src={props.img}
@@ -131,9 +138,9 @@ export const Product = (props: IProductInCart) => {
             <StyledP discount={props.newPrice}>{props.price}$/{props.per}</StyledP>
             <StyledP>{props.newPrice && `${props.newPrice}$/${props.per}`}</StyledP>
             <ChangeValue>
-                <button>+</button>
-                <StyledP>{props.quantity}</StyledP>
-                <button>-</button>
+                <button onClick={() => dispatch({type: Types.Increase, payload: {id: props.id}})}>+</button>
+                <StyledP>{props.amount}</StyledP>
+                <button onClick={() => dispatch({type: Types.Subtract, payload: {id: props.id}})}>-</button>
             </ChangeValue>
             <StyledP>Total: {props.finalPrice} $</StyledP>
             <Remove><AiOutlineDelete/></Remove>
