@@ -2,6 +2,9 @@ import styled from "styled-components";
 import {AiOutlineDelete} from "react-icons/ai";
 import {IProductInCart} from "../../Models/CartContext";
 import {device} from "../../Models/MediaQueries";
+import {useContext} from "react";
+import {CartContext} from "../../Context/CartContext";
+import {Types} from "../../Context/CartReducers";
 
 interface IProps {
     discount?: number,
@@ -123,6 +126,10 @@ const Line = styled.div`
 `
 
 export const Product = (props: IProductInCart) => {
+    const {dispatch} = useContext(CartContext);
+
+
+
     return (
         <Wrapper key={props.id}>
             <StyledImg src={props.img}
@@ -131,7 +138,7 @@ export const Product = (props: IProductInCart) => {
             <StyledP discount={props.newPrice}>{props.price}$/{props.per}</StyledP>
             <StyledP>{props.newPrice && `${props.newPrice}$/${props.per}`}</StyledP>
             <ChangeValue>
-                <button>+</button>
+                <button onClick={() =>dispatch({type: Types.Increase, payload:{ id: props.id}})}>+</button>
                 <StyledP>{props.amount}</StyledP>
                 <button>-</button>
             </ChangeValue>

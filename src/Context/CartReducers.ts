@@ -4,6 +4,7 @@ export enum Types {
     Add = 'ADD_PRODUCT',
     Subtract = 'SUBTRACT_PRODUCT',
     Delete = 'DELETE_PRODUCT',
+    Increase = 'INCREASE_PRODUCT',
 }
 
 export const CartReducers = (state: IProductInCart[], action: ProductActions) => {
@@ -31,6 +32,11 @@ export const CartReducers = (state: IProductInCart[], action: ProductActions) =>
             return [
                 ...state.filter(product => product.id !== action.payload.id),
             ]
+        case Types.Increase:
+            updatedCart[productIndex].amount = updatedCart[productIndex].amount + 1;
+            updatedCart[productIndex].finalPrice =
+                updatedCart[productIndex].finalPrice + updatedCart[productIndex].price;
+            return updatedCart;
         default:
             return state;
     }

@@ -28,6 +28,9 @@ export type ProductPayload = {
     [Types.Delete]: {
         id: number,
     }
+    [Types.Increase]: {
+        id: number,
+    }
 }
 
 export type ActionMap<M extends { [index: string]: any }> = {
