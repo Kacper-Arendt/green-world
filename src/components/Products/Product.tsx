@@ -22,7 +22,7 @@ const Item = styled.div<IPrice>`
   "price newPrice ."
   "btn btn btn";
   place-items: center;
-
+  transition: .2s all;
   background-color: white;
 
   img {
@@ -38,6 +38,10 @@ const Item = styled.div<IPrice>`
     font-size: 1.6rem;
     margin: 1.5rem 2rem 1rem;
     white-space: nowrap;
+  }
+  
+  :active{
+    transform: scale(.95);
   }
 `
 const Line = styled.div`

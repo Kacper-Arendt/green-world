@@ -12,8 +12,11 @@ const StyledHeader = styled.div`
 `
 
 const Bar = styled.div`
+  position: fixed;
+  width: 100%;
   height: 5rem;
   display: flex;
+  z-index: 10000;
   justify-content: center;
   align-items: center;
   background-color: var(--color-primary);

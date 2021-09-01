@@ -4,6 +4,7 @@ import {useHistory} from "react-router-dom";
 const StyledCategories = styled.div`
   height: 15rem;
   width: 90%;
+  margin-top: 5rem;
   place-self: center;
   display: flex;
   align-items: center;
