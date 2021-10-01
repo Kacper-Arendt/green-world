@@ -23,10 +23,10 @@ export const Cart = () => {
     return (
         <Wrapper>
             <h2>Shopping Cart</h2>
-            {state.products.map((el, key) => {
+            {state.products.map((el) => {
                     return (
                         <Product
-                            key={key}
+                            key={el.id}
                             finalPrice={el.finalPrice}
                             id={el.id}
                             name={el.name}

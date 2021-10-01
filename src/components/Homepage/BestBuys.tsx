@@ -16,11 +16,11 @@ export const BestBuys = () => {
         <WrapperEl>
             <h2>Best Buys</h2>
             <Carousel autoplay={true} slidesToScroll={1}>
-                {ProductsData.map((el, key) => {
+                {ProductsData.map((el) => {
                     if (!el.newPrice) {
                         return (
                             <Product
-                                key={key}
+                                key={el.id}
                                 id={el.id}
                                 name={el.name}
                                 alt={el.alt}

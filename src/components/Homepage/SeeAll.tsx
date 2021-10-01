@@ -15,49 +15,44 @@ const WrapperEl = styled(Wrapper)`
 }
 `
 
-const CategoryContainer = styled.div`
+const Text = styled.p`
   width: 45%;
   height: 100%;
-  background-color: var(--color-primary);
   display: flex;
-  place-items: center;
-
-  p {
-    text-align: center;
-    line-height: 1.5;
-    padding: .5rem;
-    color: white;
-    font-size: 1.5rem;
-  }
+  align-items: center;
+  text-align: center;
+  line-height: 1.5;
+  background-color: var(--color-primary);
+  color: white;
+  font-size: 1.5rem;
 
 @media${device.mobileM} {
   width: 30%;
-
-  p {
-    font-size: 2rem;
-  }
+  font-size: 2rem;
 }
 `
 
-const Image = styled.div`
+const ImageContainer = styled.div`
   width: 55%;
   height: 100%;
-  background-image:
-          url('https://ik.imagekit.io/kacper/green-world/fruitsAndVegetables_gDaEXxPQ5.jpg?updatedAt=1629317073540');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
+  position: relative;
   display: flex;
-  place-items: end;
-  justify-content: end;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
   button {
-    margin: 1rem;
-    width: 50%;
+    position: absolute;
+    bottom: 10%;
+    right: 5%;
+    width: 40%;
     height: 3rem;
-    max-width: 25rem;
+    max-width: 20rem;
   }
+
 @media${device.mobileM} {
   width: 70%;
 }
@@ -66,12 +61,14 @@ const Image = styled.div`
 export const SeeAll = () => {
     return (
         <WrapperEl>
-            <CategoryContainer>
-                <p>Vegetables and Fruits from proven farmers </p>
-            </CategoryContainer>
-            <Image>
+            <Text>Vegetables and Fruits from proven farmers</Text>
+            <ImageContainer>
+                <img
+                    src="https://ik.imagekit.io/kacper/green-world/fruitsAndVegetables_gDaEXxPQ5.jpg?updatedAt=1629317073540"
+                    alt="Fruits and vegetables on table"
+                    loading='lazy'/>
                 <Button backgroundColor='#A62940'>See All</Button>
-            </Image>
+            </ImageContainer>
         </WrapperEl>
     )
 }
