@@ -18,19 +18,19 @@ export const Discounts = () => {
         <WrapperEl>
             <h2>Discounts</h2>
             <Carousel autoplay={false} slidesToScroll={2}>
-                {ProductsData.map((el, key ) => {
+                {ProductsData.map((el) => {
                     if (el.newPrice) {
                         return (
-                                <Product
-                                    key={key}
-                                    id={el.id}
-                                         name={el.name}
-                                         alt={el.alt}
-                                         img={el.img}
-                                         price={el.price}
-                                         per={el.per}
-                                         newPrice={el.newPrice}
-                                />
+                            <Product
+                                key={el.id}
+                                id={el.id}
+                                name={el.name}
+                                alt={el.alt}
+                                img={el.img}
+                                price={el.price}
+                                per={el.per}
+                                newPrice={el.newPrice}
+                            />
                         )
                     } else {
                         return null

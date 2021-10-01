@@ -6,22 +6,24 @@ const Wrapper = styled.div`
   place-self: center;
   height: 25rem;
   width: 100%;
-  background-image: linear-gradient(to right, rgba(0, 0, 0, .4), rgba(77, 77, 77, .5)), 
-  url('https://ik.imagekit.io/kacper/green-world/main_9IC6k3TYy1.jpg?updatedAt=1629317073547');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   position: relative;
+  display: flex;
+  justify-content: center;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+  }
 
 @media${device.tablet} {
   height: 35rem;
 } @media${device.laptop} {
   height: 40rem;
   width: 90%;
-  max-width: 200rem;
-
+  max-width: 160rem;
 }
-
 `
 
 const Header = styled.h3`
@@ -37,7 +39,7 @@ const Header = styled.h3`
 }
 `
 
-const TextOnBlack = styled.div`
+const TextOnBlack = styled.p`
   position: absolute;
   top: 40%;
   left: 7%;
@@ -45,18 +47,15 @@ const TextOnBlack = styled.div`
   color: white;
   padding: 1rem;
   border-radius: 10rem;
-
-  p {
-    text-transform: capitalize;
-    font-size: 1.5rem;
-  }
+  text-transform: capitalize;
+  font-size: 1.5rem;
 
 @media${device.laptop} {
   left: 35%;
 }
 `
 
-const TextTransparent = styled.div`
+const TextTransparent = styled.p`
   position: absolute;
   bottom: 2%;
   left: 2%;
@@ -72,9 +71,12 @@ const TextTransparent = styled.div`
 export const Image = () => {
     return (
         <Wrapper>
+            <img loading='lazy'
+                 src="https://ik.imagekit.io/kacper/green-world/main_9IC6k3TYy1.jpg?updatedAt=1629317073547"
+                 alt="grocery store"/>
             <Header>Exclusive prices</Header>
-            <TextOnBlack><p>Buy local products with code <span>#EatBetter</span></p></TextOnBlack>
-            <TextTransparent><p>From 1st August to 30th September</p></TextTransparent>
+            <TextOnBlack>Buy local products with code #EatBetter</TextOnBlack>
+            <TextTransparent>From 1st August to 30th September</TextTransparent>
         </Wrapper>
     )
 }

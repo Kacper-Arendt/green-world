@@ -131,8 +131,7 @@ export const Product = (props: IProductInCart) => {
 
     return (
         <Wrapper key={props.id}>
-            <StyledImg src={props.img}
-                       alt={props.alt}/>
+            <StyledImg src={props.img} alt={props.alt} loading='lazy'/>
             <StyledP>{props.name}</StyledP>
             <StyledP discount={props.newPrice}>{props.price}$/{props.per}</StyledP>
             <StyledP>{props.newPrice && `${props.newPrice}$/${props.per}`}</StyledP>
