@@ -113,7 +113,7 @@ export const Product = (props: IProduct): JSX.Element => {
 
     return (
         <Item key={props.id}>
-            <img src={props.img} alt={props.alt}/>
+            <img loading='lazy' src={props.img} alt={props.alt}/>
             <h3>{props.name}</h3>
             <Line/>
             <NormalPrice discount={props.newPrice}><span>{props.price}$</span>/{props.per}</NormalPrice>
